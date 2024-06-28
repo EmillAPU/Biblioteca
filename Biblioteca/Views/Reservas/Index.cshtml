@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Biblioteca.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibroId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaReserva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LibroId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaReserva)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activa)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReservaId" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ReservaId" class="btn btn-primary">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ReservaId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
